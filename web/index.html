@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./dist/index.js" defer></script>
+    <script src="./dist/modal.js" defer></script>
+    <script src="./dist/settings.js" defer></script>
+    <script src="./dist/watermark.js" defer></script>
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v6.1.1/css/pro.min.css">
+    <!-- <script src="https://kit.fontawesome.com/b32d89d504.js" crossorigin="anonymous"></script> -->
+</head>
+<body>
+    <div class="watermark">
+        <div class="text">
+            <div class="row">
+                <div class="watermark-box">
+                    <i class="fa-solid fa-clock"></i>
+                    <p time>
+                        14:35
+                    </p>
+                </div>
+                <div class="watermark-box">
+                    <i class="fa-solid fa-user"></i>
+                    ID:<p playerServerId>
+                        1000
+                    </p>
+                </div>
+            </div>
+            <p class="discord">
+                discord.gg/blockgg
+            </p>
+        </div>
+        <!-- <div class="right">
+            <img
+                src="./logo.png"
+                alt=""
+                class="logo"
+            >
+            <div class="id">
+                ID: <strong playerServerId>14</strong>
+            </div>
+        </div> -->
+    </div>
+    <div id="kutas" class="hud-container new" hudContainer>
+        <div class="element" health>
+            <i class="fa-solid fa-heart"></i>
+        </div>
+        <div class="element" voice>
+            <i class="fa-solid fa-microphone"></i>
+        </div>
+    </div>
+    <div class="carhud newCarhud" carhud>
+        <div class="location">
+            <div class="direction">
+                <i class="fa-light fa-location-arrow" heading></i>
+                <p direction>North-East</p>
+            </div>
+            <div class="street box" street>
+                Alta St.
+            </div>
+        </div>
+        <div class="speedometer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 36" class="speedometer-part tacho overlay">
+                <defs>
+                    <linearGradient id="tachograd" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color: var(--primary); stop-opacity: 1" />
+                        <stop offset="100%" style="stop-color: var(--primary); stop-opacity: 1" />
+                    </linearGradient>
+                </defs>
+                <path class="circle" stroke-dasharray="75, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 36" class="speedometer-part tacho">
+                <defs>
+                    <linearGradient id="tachograd" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color: var(--primary); stop-opacity: 1" />
+                        <stop offset="100%" style="stop-color: var(--primary); stop-opacity: 1" />
+                    </linearGradient>
+                </defs>
+                <path class="circle" turnoverBar stroke-dasharray="75, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+            <div class="info-speed">
+                <h1 speed>104</h1>
+                <p>KM/H</p>
+            </div>
+        </div>
+    </div>    
+    <div class="carhud-classic" carhudClassic>
+        <p class="stroked-text street blue" street>
+            Alta
+        </p>
+        <p class="stroked-text district yellow" district>
+            Hawick Ave <span style="color: #a3a3a3" class="zone" zone>/ Alta Pl</span>
+        </p>
+        <p class="stroked-text time green" time></p>
+        <p class="stroked-text direction" direction>
+            North-East
+        </p>
+        <div class="black-alpha-bg speed">
+            <p class="stroked-text" speed>
+                4 km/h
+            </p>
+        </div>
+        <div class="black-alpha-bg rpm">
+            <p class="stroked-text" rpm>
+                1990 rpm/<span class="stroked-text yellow" gear>1</span>
+            </p>
+        </div>
+    </div>
+    <div class="modal hidden" modal>
+        <div class="modal-overlay" modalOverlay></div>
+        <div class="modal-rows">
+            <div class="modal-header modal-box">
+                <strong class="modal-title">Ustawienia</strong>
+                <button class="modal-close" modalCloseButton>
+                    <i class="fa-light fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-content modal-box">
+                <div class="settings-option">
+                    <div class="text">
+                        <strong class="title">
+                            Kolor
+                        </strong>
+                        <p class="description">
+                            Ustaw kolor, który będzie motywem przewodnim wyświetlanych komponentów 
+                        </p>
+                    </div>
+                    <div class="option">
+                        <input type="color" colorInput>
+                        <div class="color-picker"></div>
+                    </div>
+                </div>
+                <div class="settings-option">
+                    <div class="text">
+                        <strong class="title">
+                            Pozycja
+                        </strong>
+                        <p class="description">
+                            Pozycja gdzie znajduje się HUD
+                        </p>
+                    </div>
+                    <div class="option">
+                        <div class="pos-selector">
+                            <button pos="tl"></button>
+                            <button pos="tc"></button>
+                            <button pos="tr"></button>
+                            <button pos="cl"></button>
+                            <button disabled></button>
+                            <button pos="cr"></button>
+                            <button pos="bl"></button>
+                            <button pos="bc"></button>
+                            <button pos="br"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings-option">
+                    <div class="text">
+                        <strong class="title">
+                            Wybór HUDu
+                        </strong>
+                        <p class="description">
+                            Z którego hudu chcesz korzystać? Mamy aż 2!
+                        </p>
+                    </div>
+                    <div class="option-hudpos">
+                        <div class="hudpos">
+                            <button class="newHud" newHud>Zwykły</button>
+                            <button class="gtaHud" gtaHud>GTA Online</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
